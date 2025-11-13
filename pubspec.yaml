@@ -1,0 +1,33 @@
+name: pocket_puff
+description: A fun anti-mindfulness app - Pocket Puff
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For microphone input
+  permission_handler: ^11.0.1
+  mic_stream: ^0.6.5
+
+  # For accelerometer/shake detection
+  sensors_plus: ^4.0.2
+  shake: ^2.2.0
+
+  # For audio playback
+  audioplayers: ^5.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/audio/mindful.mp3
