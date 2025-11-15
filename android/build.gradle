@@ -24,6 +24,19 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(':app')
+
+    // Fix for plugins using deprecated jcenter()
+    project.afterEvaluate {
+        project.repositories.all { repo ->
+            if (repo instanceof org.gradle.api.artifacts.repositories.MavenArtifactRepository) {
+                def url = repo.url.toString()
+                if (url.contains('jcenter')) {
+                    project.logger.warn("Repository ${repo.url} removed (jcenter is deprecated)")
+                    remove(repo)
+                }
+            }
+        }
+    }
 }
 
 tasks.register("clean", Delete) {
