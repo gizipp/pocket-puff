@@ -108,10 +108,11 @@ class _PocketPuffScreenState extends State<PocketPuffScreen> {
 
     final random = Random();
     final startFromRight = random.nextBool();
+    final cloudId = DateTime.now().millisecondsSinceEpoch.toString();
 
     setState(() {
       _clouds.add(CloudPuff(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: cloudId,
         size: normalizedSize,
         startFromRight: startFromRight,
         yPosition: random.nextDouble() * 0.7, // Random y position (upper 70% of screen)
@@ -122,8 +123,7 @@ class _PocketPuffScreenState extends State<PocketPuffScreen> {
     Future.delayed(const Duration(seconds: 10), () {
       if (mounted) {
         setState(() {
-          _clouds.removeWhere((cloud) =>
-            cloud.id == DateTime.now().millisecondsSinceEpoch.toString());
+          _clouds.removeWhere((cloud) => cloud.id == cloudId);
         });
       }
     });
