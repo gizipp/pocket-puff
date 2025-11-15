@@ -131,7 +131,7 @@ class _PocketPuffScreenState extends State<PocketPuffScreen> {
 
   void _initializeShakeDetector() {
     _shakeDetector = ShakeDetector.autoStart(
-      onPhoneShake: () {
+      onPhoneShake: (_) {
         _disperseClouds();
       },
       minimumShakeCount: 2,

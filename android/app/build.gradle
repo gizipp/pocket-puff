@@ -42,7 +42,7 @@ android {
 
     defaultConfig {
         applicationId "com.pocketpuff.pocket_puff"
-        minSdkVersion 21
+        minSdkVersion flutter.minSdkVersion
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
