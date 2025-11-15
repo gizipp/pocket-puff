@@ -79,7 +79,7 @@ class _PocketPuffScreenState extends State<PocketPuffScreen> {
         audioFormat: AudioFormat.ENCODING_PCM_16BIT,
       );
 
-      _microphoneSubscription = stream?.listen((samples) {
+      _microphoneSubscription = stream.listen((samples) {
         // Calculate amplitude from samples
         if (samples.isEmpty) return;
 
@@ -195,7 +195,7 @@ class _PocketPuffScreenState extends State<PocketPuffScreen> {
               right: 24,
               child: FloatingActionButton(
                 onPressed: _playMindfulAudio,
-                backgroundColor: Colors.white.withOpacity(0.8),
+                backgroundColor: Colors.white.withValues(alpha: 0.8),
                 child: const Text(
                   '🧠',
                   style: TextStyle(fontSize: 28),
